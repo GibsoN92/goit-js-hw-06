@@ -4,12 +4,13 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-const widget = document.querySelector(".widget");
-const colorSpan = widget.querySelector(".color");
-const colorButton = widget.querySelector(".change-color");
+const body = document.querySelector("body");
+const btn = document.querySelector(".change-color");
+const nameColor = document.querySelector(".color");
 
-colorButton.addEventListener("click", function () {
-  const randomColor = getRandomHexColor();
-  document.body.style.backgroundColor = randomColor;
-  colorSpan.textContent = randomColor;
-});
+const changeColor = () => {
+  body.style.backgroundColor = getRandomHexColor();
+  nameColor.textContent = getRandomHexColor();
+};
+window.onload = (event) => changeColor();
+btn.addEventListener("click", changeColor);
